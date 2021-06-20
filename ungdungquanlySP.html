@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let smartphone = ['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Xiaomi Redmi Note 4', 'Apple Iphone 6s', 'Xiaomi mi 5s Plus', 'Apple Iphone 8 plus', 'Fujistu F-04E', 'Oppo A71']
+
+    function showAll(){
+        let a = "";
+    for (let i = 0; i < smartphone.length; i++) {
+        a+= " <tr>\n" +
+                "<td>"+smartphone[i]+"</td>\n" +
+            "        <td><button type='button' onclick= 'remove("+i+")'>Delete</button></td>\n" +
+            "        <td><button type='button' onclick= 'edit("+i+")'>Edit</button></td>\n" +
+            "    </tr>"
+    } document.getElementById('sp').innerHTML= a;
+}
+function addNewProduct() {
+    let b = document.getElementById('new').value;
+    smartphone.push(b);
+    document.getElementById('new').value = ""
+    showAll();
+}
+
+function remove(index){
+        smartphone.splice(index,1);
+        showAll();
+};
+    function edit(index){
+        let newP = prompt("Moi ban nhap thong tin moi", smartphone[index]);
+        smartphone[index] = newP;
+        showAll()
+    }
+
+</script>
+<button onclick="showAll()" type="button">HienThi</button>
+<input id="new" type="text"><button type="button" onclick="addNewProduct()">ADD</button>
+<table border="1">
+    <tr>
+        <td>ProduceName</td>
+        <td></td>
+    </tr>
+    <tbody id="sp">
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
